@@ -10,7 +10,9 @@ cp .env.example .env
 npm run migrate
 npm run seed
 npm run dev      # Backend
-npm run client   # Frontend
+Go to new terminal
+cd client
+python3 -m http.server 8080   # Frontend
 ```
 
 Visit http://localhost:8080 and login with:
