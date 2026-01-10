@@ -2,12 +2,11 @@
 
 AI-powered personal finance coach for hackathon project.
 
-## Quick Start
+## How to run
 
 ```bash
 npm install
 cp .env.example .env
-# Edit .env with your API keys
 npm run migrate
 npm run seed
 npm run dev      # Backend
