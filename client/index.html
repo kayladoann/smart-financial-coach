@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Financial Coach - Dashboard</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+        <div class="nav-brand">💰 Smart Financial Coach</div>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link active">Dashboard</a>
+            <a href="insights.html" class="nav-link">Insights</a>
+            <a href="goals.html" class="nav-link">Goals</a>
+            <a href="subscriptions.html" class="nav-link">Subscriptions</a>
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+        </nav>
+
+        <main class="main-content">
+        <div class="dashboard-header">
+            <h1>Welcome back, <span id="user-name">User</span>!</h1>
+            <button class="btn-primary" onclick="syncTransactions()">
+                Sync Transactions
+            </button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+            <h3>Total Spent</h3>
+            <p class="stat-value" id="total-spent">$0.00</p>
+            <p class="stat-label">This month</p>
+            </div>
+            <div class="stat-card">
+            <h3>Transactions</h3>
+            <p class="stat-value" id="transaction-count">0</p>
+            <p class="stat-label">This month</p>
+            </div>
+            <div class="stat-card">
+            <h3>Active Goals</h3>
+            <p class="stat-value" id="goal-count">0</p>
+            <p class="stat-label">In progress</p>
+            </div>
+            <div class="stat-card">
+            <h3>Subscriptions</h3>
+            <p class="stat-value" id="subscription-count">0</p>
+            <p class="stat-label">Monthly</p>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-card">
+            <h2>Spending by Category</h2>
+            <canvas id="category-chart"></canvas>
+            </div>
+            <div class="chart-card">
+            <h2>Top Merchants</h2>
+            <canvas id="merchant-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="transactions-section">
+            <h2>Recent Transactions</h2>
+            <div class="transactions-list" id="transactions-list">
+            <!-- Transactions will be loaded here -->
+            </div>
+        </div>
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

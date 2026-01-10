@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights - Smart Financial Coach</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="nav-brand">💰 Smart Financial Coach</div>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">Dashboard</a>
+        <a href="insights.html" class="nav-link active">Insights</a>
+        <a href="goals.html" class="nav-link">Goals</a>
+        <a href="subscriptions.html" class="nav-link">Subscriptions</a>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <div class="dashboard-header">
+        <h1>AI Insights</h1>
+        <button class="btn-primary" onclick="generateInsights()">
+          Generate New Insights
+        </button>
+      </div>
+
+      <div id="insights-list" class="insights-list">
+        <!-- Insights will be loaded here -->
+      </div>
+    </main>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/insights.js"></script>
+</body>
+</html>
