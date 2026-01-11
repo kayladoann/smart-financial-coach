@@ -15,6 +15,6 @@ cd client
 python3 -m http.server 8080   # Frontend
 ```
 
-Visit http://localhost:8080 and login with:
+Visit http://localhost:8080/client and login with:
 - Email: demo@example.com
 - Password: password123
