@@ -8,7 +8,6 @@ exports.seed = async function(knex) {
   const subscriptions = [
     { name: 'Netflix', amount: 15.99, day: 5 },
     { name: 'Spotify', amount: 9.99, day: 12 },
-    { name: 'Disney Plus', amount: 7.99, day: 8 },
     { name: 'Amazon Prime', amount: 14.99, day: 15 },
     { name: 'Apple iCloud', amount: 2.99, day: 20 },
     { name: 'Adobe Creative Cloud', amount: 54.99, day: 3 },
