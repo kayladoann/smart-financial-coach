@@ -1,40 +1,47 @@
 const db = require('../config/database');
 
 class Insight {
-    static async create(data) {
-        const [insight] = await db('insights')
-        .insert(data)
-        .returning('*');
-        return insight;
+  static async create(data) {
+    const [insight] = await db('insights')
+      .insert(data)
+      .returning('*');
+    return insight;
+  }
+
+  static async findById(id) {
+    return await db('insights').where({ id }).first();
+  }
+
+  static async findByUserId(userId, options = {}) {
+    let query = db('insights')
+      .where({ user_id: userId })
+      .orderBy('created_at', 'desc');
+
+    if (options.unreadOnly) {
+      query = query.where({ is_read: false });
     }
 
-    static async findById(id) {
-        return await db('insights').where({ id }).first();
+    if (options.limit) {
+      query = query.limit(options.limit);
     }
 
-    static async findByUserId(userId, options = {}) {
-        let query = db('insights')
-        .where({ user_id: userId })
-        .orderBy('created_at', 'desc');
+    return await query;
+  }
 
-        if (options.unreadOnly) {
-        query = query.where({ is_read: false });
-        }
+  static async update(id, data) {
+    const [insight] = await db('insights')
+      .where({ id })
+      .update(data)
+      .returning('*');
+    return insight;
+  }
 
-        if (options.limit) {
-        query = query.limit(options.limit);
-        }
-
-        return await query;
-    }
-
-    static async update(id, data) {
-        const [insight] = await db('insights')
-        .where({ id })
-        .update(data)
-        .returning('*');
-        return insight;
-    }
+  // NEW: Delete all insights for a user
+  static async deleteByUserId(userId) {
+    return await db('insights')
+      .where({ user_id: userId })
+      .del();
+  }
 }
 
 module.exports = Insight;
