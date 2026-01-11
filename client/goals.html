@@ -32,20 +32,27 @@
         <div id="create-goal-form" class="goal-form" style="display: none;">
             <h2>Create New Goal</h2>
             <form onsubmit="createGoal(event)">
-            <div class="form-group">
+                <div class="form-group">
                 <label>Goal Name</label>
-                <input type="text" id="goal-name" required>
-            </div>
-            <div class="form-group">
+                <input type="text" id="goal-name" placeholder="e.g., Emergency Fund" required>
+                </div>
+                <div class="form-group">
                 <label>Target Amount ($)</label>
-                <input type="number" id="goal-amount" step="0.01" required>
-            </div>
-            <div class="form-group">
+                <input type="number" id="goal-amount" step="0.01" min="0.01" placeholder="e.g., 3000" required>
+                </div>
+                <div class="form-group">
+                <label>Current Amount ($)</label>
+                <input type="number" id="goal-current-amount" step="0.01" min="0" placeholder="e.g., 800" value="0">
+                <small style="color: var(--text-secondary); font-size: 0.875rem;">How much have you already saved? (Default: $0)</small>
+                </div>
+                <div class="form-group">
                 <label>Deadline</label>
                 <input type="date" id="goal-deadline" required>
-            </div>
-            <button type="submit" class="btn-primary">Create Goal</button>
-            <button type="button" class="btn-secondary" onclick="hideCreateGoal()">Cancel</button>
+                </div>
+                <div class="form-actions">
+                <button type="submit" class="btn-primary">Create Goal</button>
+                <button type="button" class="btn-secondary" onclick="hideCreateGoal()">Cancel</button>
+                </div>
             </form>
         </div>
 
