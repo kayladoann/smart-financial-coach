@@ -45,3 +45,16 @@ function getMonthStart() {
 function getToday() {
   return new Date().toISOString().split('T')[0];
 }
+
+// NEW: Clear insights display
+function clearInsightsDisplay() {
+  // Try to clear insights if the element exists
+  const insightsList = document.getElementById('insights-list');
+  if (insightsList) {
+    insightsList.innerHTML = `
+      <div class="alert alert-info">
+        <p>✨ Insights cleared! Click "Generate New Insights" to analyze your updated transactions.</p>
+      </div>
+    `;
+  }
+}
