@@ -62,8 +62,9 @@ class TransactionService {
       endDate,
     });
 
-    // Calculate totals by category - FIXED with parseFloat
+    // Calculate totals by category
     const byCategory = {};
+    const transactionsByCategory = {}; // NEW: Track counts
     let totalSpent = 0;
 
     transactions.forEach((txn) => {
@@ -71,10 +72,11 @@ class TransactionService {
       if (!isNaN(amount) && amount > 0) {
         totalSpent += amount;
         byCategory[txn.category] = (byCategory[txn.category] || 0) + amount;
+        transactionsByCategory[txn.category] = (transactionsByCategory[txn.category] || 0) + 1;
       }
     });
 
-    // Get top merchants - FIXED with parseFloat
+    // Get top merchants
     const merchantTotals = {};
     transactions.forEach((txn) => {
       const amount = parseFloat(txn.amount);
@@ -92,6 +94,7 @@ class TransactionService {
     return {
       totalSpent,
       byCategory,
+      transactionsByCategory, // NEW: Include this in return
       topMerchants,
       transactionCount: transactions.length,
     };
